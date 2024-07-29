@@ -1,0 +1,65 @@
+import { saveQuestion, saveQuestionAnswer } from '../data/api';
+import { addUserAnswer, addUserQuestion } from './users';
+
+export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION';
+export const ADD_NEW_ANSWER_QUESTION = 'ADD_NEW_ANSWER_QUESTION';
+export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
+
+const addNewQuestion = (question) => {
+  return {
+    type: ADD_NEW_QUESTION,
+    question,
+  };
+};
+
+const addNewAnswerQuestion = (authUser, qid, answer) => {
+  return {
+    type: ADD_NEW_ANSWER_QUESTION,
+    authUser,
+    qid,
+    answer,
+  };
+};
+
+const receiveQuestions = (questions) => {
+  return {
+    type: RECEIVE_QUESTIONS,
+    questions,
+  };
+};
+
+const handleCreateQuestion = (firstOption, secondOption) => {
+  return async (dispatch, getState) => {
+    const { authUser } = getState();
+    const question = {
+      optionOneText: firstOption,
+      optionTwoText: secondOption,
+      author: authUser,
+    };
+    try {
+      const questionResponse = await saveQuestion(question);
+      dispatch(addNewQuestion(questionResponse));
+      dispatch(addUserQuestion(questionResponse));
+    } catch(error) {
+      console.error('Error adding question:', error);
+    }   
+  };
+};
+
+const handleCreateAnswer = (questionId, answer) => {
+  return async (dispatch, getState) => {
+    const { authUser } = getState();
+    const answerObject = {
+      authedUser: authUser.id,
+      qid: questionId,
+      answer,
+    };
+    const isAdded = await saveQuestionAnswer(answerObject);
+    if (isAdded) {
+      dispatch(addNewAnswerQuestion(authUser.id, questionId, answer));
+      dispatch(addUserAnswer(authUser.id, questionId, answer));
+    }
+  };
+};
+
+export { handleCreateQuestion, handleCreateAnswer, receiveQuestions };
