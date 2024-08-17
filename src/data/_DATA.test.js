@@ -1,16 +1,16 @@
 const { _saveQuestionAnswer, _saveQuestion } = require('./_DATA');
 
-describe('_saveQuestion', () => {
-  test('should save the question and update the user', async () => {
-    const question = {
+describe('Testing _saveQuestion Functionality', () => {
+  it('saves the question correctly and updates the relevant user data', async () => {
+    const newQuestion = {
       optionOneText: 'Option One',
       optionTwoText: 'Option Two',
       author: { id: 'tylermcginnis' },
     };
 
-    const savedQuestion = await _saveQuestion(question);
+    const result = await _saveQuestion(newQuestion);
 
-    expect(savedQuestion).toEqual({
+    expect(result).toMatchObject({
       id: expect.any(String),
       timestamp: expect.any(Number),
       author: 'tylermcginnis',
@@ -25,33 +25,37 @@ describe('_saveQuestion', () => {
     });
   });
 
-  test('should reject if optionOneText, optionTwoText, and author are not provided', async () => {
-    const question = {};
+  it('throws an error when required fields are missing', async () => {
+    const incompleteQuestion = {};
 
-    await expect(_saveQuestion(question)).rejects.toEqual(
+    await expect(_saveQuestion(incompleteQuestion)).rejects.toThrow(
       'Please provide optionOneText, optionTwoText, and author',
     );
   });
 });
 
-describe('_saveQuestionAnswer', () => {
-  test('should return true for correct parameters', async () => {
-    const response = await _saveQuestionAnswer({
+describe('Testing _saveQuestionAnswer Functionality', () => {
+  it('returns true when given valid parameters', async () => {
+    const answerSubmission = {
       authedUser: 'sarahedo',
       qid: '8xf0y6ziyjabvozdd253nd',
       answer: 'optionTwo',
-    });
+    };
 
-    expect(response).toBeTruthy();
+    const result = await _saveQuestionAnswer(answerSubmission);
+
+    expect(result).toBe(true);
   });
 
-  test('should return error for incorrect parameters', async () => {
-    const response = await _saveQuestionAnswer({
+  it('throws an error for invalid parameters', async () => {
+    const invalidSubmission = {
       authedUser: undefined,
       qid: undefined,
       answer: 'optionTwo',
-    }).catch((e) => e);
+    };
 
-    expect(response).toBe('Please provide authedUser, qid, and answer');
+    await expect(_saveQuestionAnswer(invalidSubmission)).rejects.toThrow(
+      'Please provide authedUser, qid, and answer',
+    );
   });
 });

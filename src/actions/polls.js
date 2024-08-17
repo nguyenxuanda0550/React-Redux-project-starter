@@ -1,20 +1,20 @@
 import { saveQuestion, saveQuestionAnswer } from '../data/api';
 import { addUserAnswer, addUserQuestion } from './users';
 
-export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION';
-export const ADD_NEW_ANSWER_QUESTION = 'ADD_NEW_ANSWER_QUESTION';
-export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
+export const CREATE_NEW_QUESTION = 'CREATE_NEW_QUESTION';
+export const ADD_ANSWER_TO_QUESTION = 'ADD_ANSWER_TO_QUESTION';
+export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
 
 const addNewQuestion = (question) => {
   return {
-    type: ADD_NEW_QUESTION,
+    type: CREATE_NEW_QUESTION,
     question,
   };
 };
 
 const addNewAnswerQuestion = (authUser, qid, answer) => {
   return {
-    type: ADD_NEW_ANSWER_QUESTION,
+    type: ADD_ANSWER_TO_QUESTION,
     authUser,
     qid,
     answer,
@@ -23,7 +23,7 @@ const addNewAnswerQuestion = (authUser, qid, answer) => {
 
 const receiveQuestions = (questions) => {
   return {
-    type: RECEIVE_QUESTIONS,
+    type: LOAD_QUESTIONS,
     questions,
   };
 };
