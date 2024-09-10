@@ -1,9 +1,4 @@
-const {
-  _getQuestions,
-  _getUsers,
-  _saveQuestion,
-  _saveQuestionAnswer,
-} = require('./_DATA.js');
+const { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer,} = require('./_DATA.js');
 
 function getInitialData() {
   return Promise.all([_getUsers(), _getQuestions()]).then(
