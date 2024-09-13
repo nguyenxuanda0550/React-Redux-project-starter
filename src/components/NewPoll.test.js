@@ -38,7 +38,7 @@ describe('NewPoll Component', () => {
     );
 
     // Select elements by their test IDs
-    const firstOptionLabelElement = screen.getByTestId('firstOptionLabel');
+    const firstOptionLabelElement = screen.getByTestId("firstOptionLabel");
     const firstOptionInputElement = screen.getByTestId('firstOption');
     const secondOptionLabelElement = screen.getByTestId('secondOptionLabel');
     const secondOptionInputElement = screen.getByTestId('secondOption');

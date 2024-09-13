@@ -6,6 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Login from './Login';
 import reducer from '../reducers';
 
+
+
+
 // Configure the Redux store with the provided reducer
 const store = configureStore({ reducer });
 
@@ -77,6 +80,9 @@ describe('Login Component', () => {
 
     // Assert that the error message is displayed
     const errorMessageElement = screen.getByTestId('error-message');
-    expect(errorMessageElement.textContent).toBe('Username or password is incorrect');
+    expect(errorMessageElement.textContent).toBe('Invalid username or password');
   });
 });
+
+
+

@@ -27,17 +27,17 @@ const Navbar = ({ dispatch, authUser }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to={'/'}>
+              <Link className="nav-link" to={'/'} data-testid="home-link">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/add'}>
+              <Link className="nav-link" to={'/add'} data-testid="new-poll-link">
                 New Poll
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/leaderboard'}>
+              <Link className="nav-link" to={'/leaderboard'} data-testid="leaderboard-link">
                 Leaderboard
               </Link>
             </li>
@@ -49,6 +49,7 @@ const Navbar = ({ dispatch, authUser }) => {
                 <button
                   className="btn btn-outline-primary"
                   onClick={logoutHandle}
+                  data-testid="logout-link"
                 >
                   Logout
                 </button>

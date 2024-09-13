@@ -28,6 +28,7 @@ const NewPoll = ({ dispatch }) => {
           <label
             htmlFor="firstOption"
             className="form-label"
+            data-testid="firstOptionLabel"
           >
             First Option
           </label>
@@ -38,7 +39,7 @@ const NewPoll = ({ dispatch }) => {
             }
             type="text"
             name="firstOption"
-            id="firstOption"
+            data-testid="firstOption"
             className="form-control"
           />
         </div>
@@ -46,6 +47,7 @@ const NewPoll = ({ dispatch }) => {
           <label
             htmlFor="secondOption"
             className="form-label"
+            data-testid="secondOptionLabel"
           >
             Second Option
           </label>
@@ -59,13 +61,14 @@ const NewPoll = ({ dispatch }) => {
             }
             type="text"
             name="secondOption"
-            id="secondOption"
+            data-testid="secondOption"
             className="form-control"
           />
         </div>
         <button
           type="submit"
           className="btn btn-primary w-100"
+          data-testid="submit-poll"
         >
           Add Poll
         </button>

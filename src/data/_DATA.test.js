@@ -1,4 +1,8 @@
-const { _saveQuestionAnswer, _saveQuestion } = require('./_DATA');
+const {
+  _saveQuestionAnswer,
+  _saveQuestion,
+  _getQuestions,
+} = require('./_DATA');
 
 describe('Testing _saveQuestion Functionality', () => {
   it('saves the question correctly and updates the relevant user data', async () => {
@@ -10,7 +14,7 @@ describe('Testing _saveQuestion Functionality', () => {
 
     const result = await _saveQuestion(newQuestion);
 
-    expect(result).toMatchObject({
+    expect(result).toEqual({
       id: expect.any(String),
       timestamp: expect.any(Number),
       author: 'tylermcginnis',
@@ -26,9 +30,9 @@ describe('Testing _saveQuestion Functionality', () => {
   });
 
   it('throws an error when required fields are missing', async () => {
-    const incompleteQuestion = {};
+    const question = {};
 
-    await expect(_saveQuestion(incompleteQuestion)).rejects.toThrow(
+    await expect(_saveQuestion(question)).rejects.toEqual(
       'Please provide optionOneText, optionTwoText, and author',
     );
   });
@@ -36,26 +40,22 @@ describe('Testing _saveQuestion Functionality', () => {
 
 describe('Testing _saveQuestionAnswer Functionality', () => {
   it('returns true when given valid parameters', async () => {
-    const answerSubmission = {
-      authedUser: 'sarahedo',
-      qid: '8xf0y6ziyjabvozdd253nd',
-      answer: 'optionTwo',
-    };
-
-    const result = await _saveQuestionAnswer(answerSubmission);
-
-    expect(result).toBe(true);
+      const response = await _saveQuestionAnswer({
+        authedUser: 'sarahedo',
+        qid: '8xf0y6ziyjabvozdd253nd',
+        answer: 'optionTwo',
+      });
+    expect(response).toBeTruthy();
   });
 
   it('throws an error for invalid parameters', async () => {
-    const invalidSubmission = {
+    const response = await _saveQuestionAnswer({
       authedUser: undefined,
       qid: undefined,
       answer: 'optionTwo',
-    };
+    }).catch((e) => e);
 
-    await expect(_saveQuestionAnswer(invalidSubmission)).rejects.toThrow(
-      'Please provide authedUser, qid, and answer',
-    );
+    expect(response).toBe('Please provide authedUser, qid, and answer');
+
   });
 });

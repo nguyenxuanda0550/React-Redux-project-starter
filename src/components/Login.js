@@ -41,6 +41,7 @@ const Login = ({ dispatch, loggedIn }) => {
           id="dropdownMenuButton"
           data-bs-toggle="dropdown"
           aria-expanded="false"
+          data-testid="existing-user-label"
         >
           Existing User
         </button>
@@ -81,12 +82,12 @@ const Login = ({ dispatch, loggedIn }) => {
       </div>
       <form onSubmit={onSubmit} className="w-100 max-w-sm">
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
+          <label htmlFor="username" className="form-label" data-testid="username-label">
             Username
           </label>
           <input
             type="text"
-            id="username"
+            data-testid="username-input"
             className="form-control"
             value={credentials.username}
             onChange={(e) =>
@@ -98,12 +99,12 @@ const Login = ({ dispatch, loggedIn }) => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className="form-label" data-testid="password-label">
             Password
           </label>
           <input
             type="password"
-            id="password"
+            data-testid="password-input"
             className="form-control"
             value={credentials.password}
             onChange={(e) =>
@@ -115,13 +116,14 @@ const Login = ({ dispatch, loggedIn }) => {
           />
         </div>
         {error && (
-          <div className="alert alert-danger" role="alert">
+          <div className="alert alert-danger" role="alert" data-testid="error-message">
             {error}
           </div>
         )}
         <button
           type="submit"
           className="btn btn-primary w-100"
+          data-testid="submit-login"
         >
           Login
         </button>

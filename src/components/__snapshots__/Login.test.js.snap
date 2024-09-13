@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component should render the component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container d-flex flex-column align-items-center mt-5"
+      >
+        <h1
+          class="text-center mb-4"
+        >
+          Login
+        </h1>
+        <div
+          class="dropdown mb-4"
+        >
+          <button
+            aria-expanded="false"
+            class="btn btn-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            data-testid="existing-user-label"
+            id="dropdownMenuButton"
+            type="button"
+          >
+            Existing User
+          </button>
+          <ul
+            aria-labelledby="dropdownMenuButton"
+            class="dropdown-menu"
+          >
+            <li>
+              <button
+                class="dropdown-item"
+              >
+                Sarah Edo
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item"
+              >
+                Tyler McGinnis
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item"
+              >
+                Mike Tsamis
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item"
+              >
+                Zenobia Oshikanlu
+              </button>
+            </li>
+          </ul>
+        </div>
+        <form
+          class="w-100 max-w-sm"
+        >
+          <div
+            class="mb-3"
+          >
+            <label
+              class="form-label"
+              data-testid="username-label"
+              for="username"
+            >
+              Username
+            </label>
+            <input
+              class="form-control"
+              data-testid="username-input"
+              type="text"
+              value="tylermcginnis"
+            />
+          </div>
+          <div
+            class="mb-3"
+          >
+            <label
+              class="form-label"
+              data-testid="password-label"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              class="form-control"
+              data-testid="password-input"
+              type="password"
+              value="abc321"
+            />
+          </div>
+          <button
+            class="btn btn-primary w-100"
+            data-testid="submit-login"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container d-flex flex-column align-items-center mt-5"
+    >
+      <h1
+        class="text-center mb-4"
+      >
+        Login
+      </h1>
+      <div
+        class="dropdown mb-4"
+      >
+        <button
+          aria-expanded="false"
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          data-testid="existing-user-label"
+          id="dropdownMenuButton"
+          type="button"
+        >
+          Existing User
+        </button>
+        <ul
+          aria-labelledby="dropdownMenuButton"
+          class="dropdown-menu"
+        >
+          <li>
+            <button
+              class="dropdown-item"
+            >
+              Sarah Edo
+            </button>
+          </li>
+          <li>
+            <button
+              class="dropdown-item"
+            >
+              Tyler McGinnis
+            </button>
+          </li>
+          <li>
+            <button
+              class="dropdown-item"
+            >
+              Mike Tsamis
+            </button>
+          </li>
+          <li>
+            <button
+              class="dropdown-item"
+            >
+              Zenobia Oshikanlu
+            </button>
+          </li>
+        </ul>
+      </div>
+      <form
+        class="w-100 max-w-sm"
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            data-testid="username-label"
+            for="username"
+          >
+            Username
+          </label>
+          <input
+            class="form-control"
+            data-testid="username-input"
+            type="text"
+            value="tylermcginnis"
+          />
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            data-testid="password-label"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            class="form-control"
+            data-testid="password-input"
+            type="password"
+            value="abc321"
+          />
+        </div>
+        <button
+          class="btn btn-primary w-100"
+          data-testid="submit-login"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

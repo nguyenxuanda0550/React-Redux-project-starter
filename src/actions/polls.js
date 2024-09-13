@@ -36,6 +36,7 @@ const handleCreateQuestion = (firstOption, secondOption) => {
       optionTwoText: secondOption,
       author: authUser,
     };
+    console.log('question', question)
     try {
       const questionResponse = await saveQuestion(question);
       dispatch(addNewQuestion(questionResponse));
