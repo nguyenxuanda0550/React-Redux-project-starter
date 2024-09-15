@@ -18,14 +18,15 @@ const questionsReducer = (state = initialState, action) => {
       };
     case ADD_ANSWER_TO_QUESTION:
       // Updated answer to specific question
-      const { qid, answer, authedUser } = action;
       return {
         ...state,
-        [qid]: {
-          ...state[qid],
-          [answer]: {
-            ...state[qid][answer],
-            votes: [...state[qid][answer].votes, authedUser],
+        [action.qid]: {
+          ...state[action.qid],
+          [action.answer]: {
+            ...state[action.qid][action.answer],
+            votes: state[action.qid][action.answer].votes.concat(
+              action.authUser,
+            ),
           },
         },
       };

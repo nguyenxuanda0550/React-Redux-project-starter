@@ -10,6 +10,7 @@ const Poll = ({ authUser, users, questions, dispatch }) => {
   const authorName = users[questions[id]?.author]?.name;
   const authUserAnswer = users[authUser?.id]?.answers[id];
   const [answer, setAnswer] = useState(authUserAnswer);
+  // console.log('answer', answer )
   const initialVoteCount = {
     optionOne: questions[id]?.optionOne?.votes?.length,
     optionTwo: questions[id]?.optionTwo?.votes?.length,

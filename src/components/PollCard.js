@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const PollCard = ({ poll, author }) => {
+  console.log('poll', poll)
   const date = new Date(poll.timestamp).toLocaleDateString();
   
   return (

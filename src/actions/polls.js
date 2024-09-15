@@ -13,6 +13,7 @@ const addNewQuestion = (question) => {
 };
 
 const addNewAnswerQuestion = (authUser, qid, answer) => {
+  // console.log(answer)
   return {
     type: ADD_ANSWER_TO_QUESTION,
     authUser,
@@ -36,7 +37,6 @@ const handleCreateQuestion = (firstOption, secondOption) => {
       optionTwoText: secondOption,
       author: authUser,
     };
-    console.log('question', question)
     try {
       const questionResponse = await saveQuestion(question);
       dispatch(addNewQuestion(questionResponse));
@@ -56,6 +56,7 @@ const handleCreateAnswer = (questionId, answer) => {
       answer,
     };
     const isAdded = await saveQuestionAnswer(answerObject);
+    // console.log(isAdded)
     if (isAdded) {
       dispatch(addNewAnswerQuestion(authUser.id, questionId, answer));
       dispatch(addUserAnswer(authUser.id, questionId, answer));
